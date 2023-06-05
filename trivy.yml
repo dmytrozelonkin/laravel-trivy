@@ -1,0 +1,12 @@
+debug: true
+
+scan:
+  scanners:
+    - vuln
+    - config
+    - secret
+
+  skip-dirs:
+    - /vendor
+    - /public
+    - /storage
