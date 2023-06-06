@@ -16,18 +16,11 @@ jobs:
         uses: aquasecurity/trivy-action@master
         with:
           scan-type: 'fs'
-          format: 'sarif'
-          output: 'trivy-results.sarif'
 #          scan-ref: 'yarn.lock'
-#          ignore-unfixed: true
-#          format: 'table'
-#          exit-code: '1'
+          ignore-unfixed: true
+          format: 'table'
+          exit-code: '1'
 #          severity: 'CRITICAL'
-
-      - name: Upload Trivy scan results to GitHub Security tab
-        uses: github/codeql-action/upload-sarif@v2
-        with:
-          sarif_file: 'trivy-results.sarif'
 
 #      - name: Build an image from Dockerfile
 #        run: |
