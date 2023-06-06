@@ -17,8 +17,8 @@ jobs:
         with:
           scan-type: 'fs'
           scan-ref: '.'
-          ignore-unfixed: true
-          format: 'table'
+#          ignore-unfixed: true
+          format: 'table'z
           exit-code: '0'
 #          severity: 'CRITICAL'
 
