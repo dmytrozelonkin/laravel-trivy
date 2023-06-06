@@ -16,6 +16,7 @@ jobs:
         uses: aquasecurity/trivy-action@master
         with:
           scan-type: 'fs'
+          scan-ref: 'yarn.lock'
 #          ignore-unfixed: true
           format: 'table'
           exit-code: '1'
