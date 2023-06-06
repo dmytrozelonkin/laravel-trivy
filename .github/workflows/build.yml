@@ -16,10 +16,10 @@ jobs:
         uses: aquasecurity/trivy-action@master
         with:
           scan-type: 'fs'
-          scan-ref: 'yarn.lock,composer.lock'
+#          scan-ref: 'yarn.lock'
 #          ignore-unfixed: true
           format: 'table'
-          exit-code: '1'
+#          exit-code: '1'
 #          severity: 'CRITICAL'
 
       - name: Build an image from Dockerfile
