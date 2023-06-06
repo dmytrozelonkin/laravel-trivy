@@ -23,6 +23,7 @@ jobs:
           image-ref: ${{ github.sha }}
           format: 'sarif'
           output: 'trivy-results.sarif'
+          exit-code: '1'
           vuln-type: 'os,library'
           ignore-unfixed: true
 
