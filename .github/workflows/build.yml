@@ -12,12 +12,22 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v3
 
-      - name: Run Trivy vulnerability scanner in repo mode
+      - name: Scan composer.lock
         uses: aquasecurity/trivy-action@master
         with:
           scan-type: 'fs'
-          scan-ref: '.'
+          scan-ref: 'composer.lock'
 #          ignore-unfixed: true
+          format: 'table'
+          exit-code: '0'
+#          severity: 'CRITICAL'
+
+      - name: Scan yarn.lock
+        uses: aquasecurity/trivy-action@master
+        with:
+          scan-type: 'fs'
+          scan-ref: 'yarn.lock'
+          #          ignore-unfixed: true
           format: 'table'
           exit-code: '0'
 #          severity: 'CRITICAL'
