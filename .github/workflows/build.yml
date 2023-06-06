@@ -12,6 +12,14 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v3
 
+      - name: Run Trivy vulnerability scanner in repo mode
+        uses: aquasecurity/trivy-action@master
+        with:
+          scan-type: 'fs'
+#          ignore-unfixed: true
+          format: 'table'
+#          severity: 'CRITICAL'
+
       - name: Build an image from Dockerfile
         run: |
           cd docker/8.2
@@ -20,6 +28,7 @@ jobs:
       - name: Run Trivy vulnerability scanner
         uses: aquasecurity/trivy-action@master
         with:
+          scan-type: 'image'
           image-ref: ${{ github.sha }}
           format: 'table'
 #          output: 'trivy-results.sarif'
