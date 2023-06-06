@@ -16,28 +16,35 @@ jobs:
         uses: aquasecurity/trivy-action@master
         with:
           scan-type: 'fs'
+          format: 'sarif'
+          output: 'trivy-results.sarif'
 #          scan-ref: 'yarn.lock'
 #          ignore-unfixed: true
-          format: 'table'
+#          format: 'table'
 #          exit-code: '1'
 #          severity: 'CRITICAL'
 
-      - name: Build an image from Dockerfile
-        run: |
-          cd docker/8.2
-          docker build . -t ${{ github.sha }}
-
-      - name: Run Trivy vulnerability scanner
-        uses: aquasecurity/trivy-action@master
+      - name: Upload Trivy scan results to GitHub Security tab
+        uses: github/codeql-action/upload-sarif@v2
         with:
-          scan-type: 'image'
-          image-ref: ${{ github.sha }}
-          format: 'table'
-#          output: 'trivy-results.sarif'
-          exit-code: '1'
-          vuln-type: 'os,library'
-#          ignore-unfixed: true
-          severity: 'CRITICAL,HIGH'
+          sarif_file: 'trivy-results.sarif'
+
+#      - name: Build an image from Dockerfile
+#        run: |
+#          cd docker/8.2
+#          docker build . -t ${{ github.sha }}
+
+#      - name: Run Trivy vulnerability scanner
+#        uses: aquasecurity/trivy-action@master
+#        with:
+#          scan-type: 'image'
+#          image-ref: ${{ github.sha }}
+#          format: 'table'
+##          output: 'trivy-results.sarif'
+#          exit-code: '1'
+#          vuln-type: 'os,library'
+##          ignore-unfixed: true
+#          severity: 'CRITICAL,HIGH'
 
 #      - name: Upload Trivy scan results to GitHub Security tab
 #        uses: github/codeql-action/upload-sarif@v2
