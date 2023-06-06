@@ -17,7 +17,8 @@ jobs:
         with:
           scan-type: 'fs'
           scan-ref: '.'
-          list-all-pkgs: true
+#          file-patterns: 'composer.lock,yarn-lock'
+          file-patterns: 'yarn.lock'
 #          ignore-unfixed: true
           format: 'table'
           exit-code: '0'
