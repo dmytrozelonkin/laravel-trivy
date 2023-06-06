@@ -12,13 +12,11 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v3
 
-      - name: Scan composer.lock
+      - name: Filesystem check
         uses: aquasecurity/trivy-action@master
         with:
           scan-type: 'fs'
-          scan-ref: '.'
-#          file-patterns: 'composer.lock,yarn-lock'
-          file-patterns: 'yarn.lock'
+#          scan-ref: '.'
 #          ignore-unfixed: true
           format: 'table'
           exit-code: '0'
