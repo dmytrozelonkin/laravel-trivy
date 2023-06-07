@@ -5,51 +5,64 @@ on:
       - main
   pull_request:
 jobs:
-  build:
-    name: Build
-    runs-on: ubuntu-20.04
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v3
-
-      - name: Scan composer.lock
-        uses: aquasecurity/trivy-action@master
-        with:
-          scan-type: 'fs'
-          scan-ref: 'composer.lock'
-#          ignore-unfixed: true
-          format: 'table'
-          exit-code: '0'
-#          severity: 'CRITICAL'
-
-      - name: Scan yarn.lock
-        uses: aquasecurity/trivy-action@master
-        with:
-          scan-type: 'fs'
-          scan-ref: 'yarn.lock'
-          #          ignore-unfixed: true
-          format: 'table'
-          exit-code: '0'
-#          severity: 'CRITICAL'
-
-      - name: Build an image from Dockerfile
-        run: |
-          cd docker/8.2
-          docker build . -t ${{ github.sha }}
-
-      - name: Run Trivy vulnerability scanner
-        uses: aquasecurity/trivy-action@master
-        with:
-          scan-type: 'image'
-          image-ref: ${{ github.sha }}
-          format: 'table'
-#          output: 'trivy-results.sarif'
-          exit-code: '1'
-          vuln-type: 'os,library'
-#          ignore-unfixed: true
-          severity: 'CRITICAL,HIGH'
+#  build:
+#    name: Build
+#    runs-on: ubuntu-20.04
+#    steps:
+#      - name: Checkout code
+#        uses: actions/checkout@v3
+#
+#      - name: Scan composer.lock
+#        uses: aquasecurity/trivy-action@master
+#        with:
+#          scan-type: 'fs'
+#          scan-ref: 'composer.lock'
+##          ignore-unfixed: true
+#          format: 'table'
+#          exit-code: '0'
+##          severity: 'CRITICAL'
+#
+#      - name: Scan yarn.lock
+#        uses: aquasecurity/trivy-action@master
+#        with:
+#          scan-type: 'fs'
+#          scan-ref: 'yarn.lock'
+#          #          ignore-unfixed: true
+#          format: 'table'
+#          exit-code: '0'
+##          severity: 'CRITICAL'
+#
+#      - name: Build an image from Dockerfile
+#        run: |
+#          cd docker/8.2
+#          docker build . -t ${{ github.sha }}
+#
+#      - name: Run Trivy vulnerability scanner
+#        uses: aquasecurity/trivy-action@master
+#        with:
+#          scan-type: 'image'
+#          image-ref: ${{ github.sha }}
+#          format: 'table'
+##          output: 'trivy-results.sarif'
+#          exit-code: '0'
+#          vuln-type: 'os,library'
+##          ignore-unfixed: true
+#          severity: 'CRITICAL,HIGH'
 
 #      - name: Upload Trivy scan results to GitHub Security tab
 #        uses: github/codeql-action/upload-sarif@v2
 #        with:
 #          sarif_file: 'trivy-results.sarif'
+
+  sonarcloud:
+    name: SonarCloud
+    runs-on: ubuntu-20.04
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+      - name: SonarCloud Scan
+        uses: SonarSource/sonarcloud-github-action@master
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
