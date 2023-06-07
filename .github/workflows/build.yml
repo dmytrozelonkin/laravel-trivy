@@ -20,7 +20,7 @@ jobs:
 #          ignore-unfixed: true
           format: 'table'
           exit-code: '0'
-          debug: true
+          args: '-d'
 #          severity: 'CRITICAL'
 
 #      - name: Scan yarn.lock
