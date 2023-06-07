@@ -17,6 +17,7 @@ jobs:
         with:
           scan-type: 'fs'
           scan-ref: '.'
+          list-all-pkgs: true
 #          ignore-unfixed: true
           format: 'table'
           exit-code: '0'
