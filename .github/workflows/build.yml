@@ -68,5 +68,12 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
 
+      - name: SonarCloud Summary Action
+        uses: thecanadianroot/sonarcloud-summary-action@v1
+        with:
+          github-repository: ${{ github.repository }}
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          pull-request: ${{ github.event.pull_request.number }}
+
       - name: Check Sonar Status
         uses: sonarcloud-actions/sonarcloud-check-status-action@v1
