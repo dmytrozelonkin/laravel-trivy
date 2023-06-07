@@ -2,9 +2,7 @@ debug: true
 
 # Same as '--format'
 # Default is 'table'
-format: json
-
-list-all-pkgs: true
+format: table
 
 # Same as '--severity'
 # Default is all severities
@@ -34,4 +32,4 @@ scan:
     - ./vendor
     - ./public
     - ./storage
-    - ./node-modules
+    - ./node_modules
