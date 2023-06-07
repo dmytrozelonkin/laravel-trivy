@@ -19,7 +19,7 @@ jobs:
           scan-ref: '.'
           list-all-pkgs: true
 #          ignore-unfixed: true
-          format: 'table'
+          format: 'json'
           exit-code: '0'
           args: '-d'
 #          severity: 'CRITICAL'
