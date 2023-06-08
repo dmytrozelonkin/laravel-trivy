@@ -17,22 +17,10 @@ jobs:
         with:
           scan-type: 'fs'
           scan-ref: '.'
-          list-all-pkgs: true
-#          ignore-unfixed: true
-          format: 'json'
-          exit-code: '0'
-          args: '-d'
-#          severity: 'CRITICAL'
-
-#      - name: Scan yarn.lock
-#        uses: aquasecurity/trivy-action@master
-#        with:
-#          scan-type: 'fs'
-#          scan-ref: 'yarn.lock'
-#          #          ignore-unfixed: true
-#          format: 'table'
-#          exit-code: '0'
-##          severity: 'CRITICAL'
+          ignore-unfixed: true
+          format: 'table'
+          exit-code: '1'
+          severity: 'CRITICAL,HIGH,MEDIUM,LOW,UNKNOWN'
 
 #      - name: Build an image from Dockerfile
 #        run: |
