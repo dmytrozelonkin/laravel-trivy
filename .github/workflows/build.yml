@@ -19,7 +19,7 @@ jobs:
           scan-ref: '.'
           ignore-unfixed: true
           format: 'table'
-          scanners: 'vuln'
+          scanners: 'vuln,secret,config'
           severity: 'CRITICAL,HIGH,MEDIUM,LOW,UNKNOWN'
           exit-code: '1'
 
