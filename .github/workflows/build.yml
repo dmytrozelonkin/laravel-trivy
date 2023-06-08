@@ -23,22 +23,21 @@ jobs:
           severity: 'CRITICAL,HIGH,MEDIUM,LOW,UNKNOWN'
           exit-code: '1'
 
-#      - name: Build an image from Dockerfile
-#        run: |
-#          cd docker/8.2
-#          docker build . -t ${{ github.sha }}
+      - name: Build an image from Dockerfile
+        run: |
+          cd docker/8.2
+          docker build . -t ${{ github.sha }}
 
-#      - name: Run Trivy vulnerability scanner
-#        uses: aquasecurity/trivy-action@master
-#        with:
-#          scan-type: 'image'
-#          image-ref: ${{ github.sha }}
-#          format: 'table'
-##          output: 'trivy-results.sarif'
-#          exit-code: '0'
-#          vuln-type: 'os,library'
-##          ignore-unfixed: true
-#          severity: 'CRITICAL,HIGH'
+      - name: Run Trivy vulnerability scanner
+        uses: aquasecurity/trivy-action@master
+        with:
+          scan-type: 'image'
+          image-ref: ${{ github.sha }}
+          format: 'table'
+          exit-code: '1'
+          vuln-type: 'os,library'
+          ignore-unfixed: true
+          severity: 'CRITICAL,HIGH'
 #
 #      - name: Upload Trivy scan results to GitHub Security tab
 #        uses: github/codeql-action/upload-sarif@v2
