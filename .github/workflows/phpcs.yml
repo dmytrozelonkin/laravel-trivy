@@ -16,4 +16,5 @@ jobs:
           php phpcs.phar --version
 
       - name: Run PHP_CodeSniffer
-        uses: rtCamp/action-phpcs-code-review@v3
+        run: |
+          php phpcs.phar
