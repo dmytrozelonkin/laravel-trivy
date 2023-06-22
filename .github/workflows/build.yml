@@ -5,6 +5,24 @@ on:
       - main
   pull_request:
 jobs:
+  phpcs:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Install PHP_CodeSniffer
+        run: |
+          curl -OL https://squizlabs.github.io/PHP_CodeSniffer/phpcs.phar
+          php phpcs.phar --version
+
+      - name: Run PHP_CodeSniffer
+        uses: thenabeel/action-phpcs@v8
+        with:
+          files: "**.php"
+          phpcs_path: php phpcs.phar
+          standard: phpcs.xml
+
   build:
     name: Build
     runs-on: ubuntu-20.04
