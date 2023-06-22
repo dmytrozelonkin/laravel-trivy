@@ -3,14 +3,18 @@
 <ruleset name= "Laravel PHPCS Rules">
     <description>PHPCS ruleset for Laravel app.</description>
 
-    <file>app</file>
-    <file>tests</file>
-
     <!-- Show progress of the run -->
     <arg value= "p"/>
-
     <!-- Show sniff codes in all reports -->
     <arg value= "s"/>
+    <arg name="colors"/>
+    <arg name="extensions" value="php"/>
+
+    <file>app</file>
+    <file>database</file>
+    <file>config</file>
+    <file>routes</file>
+    <file>tests</file>
 
     <!-- Our base rule: set to PSR12 -->
     <rule ref="PSR12">
