@@ -2,12 +2,15 @@
 
 namespace App\Services;
 
+use App\Models\User;
+
 class Bar
 {
-    public function doSomething(int $id, string $email)
+    public function doSomething(int $id, string $email): User
     {
-        $user = \App\Models\User::where('id', $id)->first();
-        $user->email = 'new@mail.com';
+        /** @var User $user */
+        $user = User::where('id', $id)->first();
+        $user->email = $email;
         $user->save();
 
         return $user;
