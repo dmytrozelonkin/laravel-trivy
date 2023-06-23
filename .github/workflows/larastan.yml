@@ -17,17 +17,8 @@ jobs:
           extensions: "dom, curl, libxml, mbstring, zip, fileinfo"
           coverage: "none"
 
-      - name: "Change Composer config minimum-stability"
-        run: "composer config minimum-stability stable"
-
-      - name: "Change Composer config prefer-stable"
-        run: "composer config prefer-stable false"
-
       - name: Install composer dependencies
         run: composer install --no-interaction --no-progress
-
-      - name: Debug
-        run: ls -la
 
       - name: Run Larastan
         run: composer run-script phpstan
