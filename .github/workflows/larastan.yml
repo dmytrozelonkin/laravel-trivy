@@ -17,7 +17,8 @@ jobs:
           extensions: "dom, curl, libxml, mbstring, zip, fileinfo"
           coverage: "none"
 
-      - name: Run larastan
-        run: |
-          php -v
-          composer -v
+      - name: Install Larastan
+        run: composer install nunomaduro/larastan --no-update --no-interaction --no-progress
+
+      - name: Run Larastan
+        run: ./vendor/bin/phpstan analyse --ansi --memory-limit 256M
