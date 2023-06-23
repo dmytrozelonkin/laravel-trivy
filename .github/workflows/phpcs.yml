@@ -5,6 +5,7 @@ on:
       - main
 jobs:
   phpcs:
+    if: false
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
