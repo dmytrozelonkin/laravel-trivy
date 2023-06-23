@@ -20,5 +20,8 @@ jobs:
       - name: Install Larastan
         run: composer require nunomaduro/larastan:^2.0 --no-update --no-interaction --no-progress
 
+      - name: Debug
+        run: ls -la
+
       - name: Run Larastan
         run: composer run-script phpstan
