@@ -21,4 +21,4 @@ jobs:
         run: composer require nunomaduro/larastan:^2.0 --dev --no-update --no-interaction --no-progress
 
       - name: Run Larastan
-        run: /var/www/html/vendor/bin/phpstan analyse --ansi --memory-limit 256M
+        run: composer run-script phpstan
