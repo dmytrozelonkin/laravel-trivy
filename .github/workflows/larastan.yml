@@ -15,7 +15,7 @@ jobs:
         with:
           php-version: 8.2
           extensions: "dom, curl, libxml, mbstring, zip, fileinfo"
-          coverage: "none"
+          coverage: none
 
       - name: Install composer dependencies
         run: composer install --no-interaction --no-progress

@@ -16,5 +16,4 @@ jobs:
           php phpcs.phar --version
 
       - name: Run PHP_CodeSniffer
-        run: |
-          php phpcs.phar
+        run: php phpcs.phar
