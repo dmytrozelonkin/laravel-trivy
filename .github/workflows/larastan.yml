@@ -23,8 +23,8 @@ jobs:
       - name: "Change Composer config prefer-stable"
         run: "composer config prefer-stable false"
 
-      - name: Install Larastan
-        run: composer require nunomaduro/larastan:^2.0 --dev --no-update --no-interaction --no-progress
+      - name: Install composer dependencies
+        run: composer install --no-update --no-interaction --no-progress
 
       - name: Debug
         run: ls -la
