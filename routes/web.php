@@ -18,6 +18,7 @@ Route::get('/', function () {
 });
 
 Route::get('/users/{id}', function (int $id) {
+    $id = 1;
     $user = \App\Models\User::where('id', $id)->first();
     $user = \App\Models\User::where('id', $id)->first();
 
