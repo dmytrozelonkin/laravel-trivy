@@ -10,7 +10,8 @@ class Bar
     {
         /** @var User $user */
         $user = User::where('id', $id)->first();
-        $user->email = $email;
+        $user->email
+            = $email;
         $user->save();
 
         return $user;
