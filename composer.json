@@ -50,7 +50,8 @@
             "@php artisan key:generate --ansi"
         ],
         "phpstan": "phpstan analyse --ansi --memory-limit 256M",
-        "phpmd": "phpmd . ansi ./phpmd.xml"
+        "phpmd": "phpmd . ansi ./phpmd.xml",
+        "phpcs": "phpcs --standard=./phpcs.xml"
     },
     "extra": {
         "laravel": {

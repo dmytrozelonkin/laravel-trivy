@@ -10,10 +10,15 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v3
 
-      - name: Install PHP_CodeSniffer
-        run: |
-          curl -OL https://squizlabs.github.io/PHP_CodeSniffer/phpcs.phar
-          php phpcs.phar --version
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: 8.2
+          extensions: "dom, curl, libxml, mbstring, zip, fileinfo"
+          coverage: none
 
-      - name: Run PHP_CodeSniffer
-        run: php phpcs.phar
+      - name: Install composer dependencies
+        run: composer install --no-interaction --no-progress
+
+      - name: Run phpcs
+        run: composer run-script phpcs
