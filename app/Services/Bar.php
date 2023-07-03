@@ -16,4 +16,9 @@ class Bar
 
         return $user;
     }
+
+    public function do_nothing($foo = 'foo')
+    {
+        //
+    }
 }
