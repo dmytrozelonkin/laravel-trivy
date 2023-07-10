@@ -1,14 +1,14 @@
     "repositories": [
         {
             "type": "path",
-            "url": "packages/dzelonkin/laravel",
+            "url": "../starter_kits/laravel-tex-tools",
             "options": {
                 "symlink": true
             }
         }
     ],
 
-"dzelonkin/laravel": "@dev"
+compose require sigma/laravel-tex-tools:@dev
 
 php artisan vendor:publish --tag=github-actions
 php artisan vendor:publish --tag=phpcs-config

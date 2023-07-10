@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "19c8bf2e907349c9ed2cea4c85119d27",
+    "content-hash": "2839b5da21a8c42b2ee4780115855cd5",
     "packages": [
         {
             "name": "brick/math",
@@ -7939,36 +7939,6 @@
             "time": "2023-02-07T11:34:05+00:00"
         },
         {
-            "name": "sigma/laravel-tex-tools",
-            "version": "dev-master",
-            "dist": {
-                "type": "path",
-                "url": "../starter_kits/laravel-tex-tools",
-                "reference": "a113e9d1df2811d8379bb65d601de9e99da4da58"
-            },
-            "require": {
-                "laravel/framework": "10.*",
-                "php": "8.2.*"
-            },
-            "type": "library",
-            "extra": {
-                "laravel": {
-                    "providers": [
-                        "Sigma\\LaravelTexTools\\PackageServiceProvider"
-                    ]
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Sigma\\LaravelTexTools\\": "src"
-                }
-            },
-            "transport-options": {
-                "symlink": true,
-                "relative": true
-            }
-        },
-        {
             "name": "spatie/backtrace",
             "version": "1.4.0",
             "source": {
@@ -8748,9 +8718,7 @@
     ],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": {
-        "sigma/laravel-tex-tools": 20
-    },
+    "stability-flags": [],
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {
