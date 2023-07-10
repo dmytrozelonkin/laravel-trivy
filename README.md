@@ -1,19 +1,43 @@
-Important notice: SonarCloud Free plan is not available for private Github repositories.
+    "repositories": [
+        {
+            "type": "path",
+            "url": "packages/dzelonkin/laravel",
+            "options": {
+                "symlink": true
+            }
+        }
+    ],
 
-Initial setup
-- replace {{PATH_TO_DOCKERFILE}} inside ./github/workflows/build.yml on actual path to Dockerfile inside your project
-- make sure that package.json file has name and version fields(trivy needs these fields to be able to analyse JS dependencies properly)
-- 
+"dzelonkin/laravel": "@dev"
 
-SonarCloud setup
-- Login to SonarCloud using github account and import your organization & project
-- Disable automatic analysis on SonarCloud: select project -> Administration -> Analysis Method -> Automatic Analysis
-- Set the SONAR_TOKEN env variable in github: Setting -> Secrets and Variables -> Actions -> New Secret Repository
-    Name: SONAR_TOKEN
-    Secret: Go to SonarCloud -> My Account -> Security tab -> Generate token
-- Create sonar-project.properties file in the root directory
-    Add following properties:
-      sonar.organization={{ ORGANIZATION_NAME }} (Open Information page on the project details page -> find Organization Key)
-      sonar.projectKey={{ PROJECT_KEY }} (Open Information page on the project details page -> find Project Key)
-      sonar.sources=.
-- Configure Quality Gates
+php artisan vendor:publish --tag=github-actions
+php artisan vendor:publish --tag=phpcs-config
+
+https://github.com/dmytrozelonkin/sigma_excellence
+
+git commit --no-verify
+
+https://phpstan.org/
+https://github.com/nunomaduro/larastan
+https://github.com/TomasVotruba/bladestan
+https://mskelton.medium.com/auto-formatting-code-using-prettier-and-github-actions-ed458f58b7df
+
+# How to setup prettier
+1. add prettier as dev dependency
+2.
+3. Setup prettier on local env
+   https://prettier.io/docs/en/editors.html
+   `Run for files: {**/*,*}.{js,vue}`
+
+scripts:
+"lint": "eslint --ext .js,.vue --ignore-path .gitignore --fix resources/js",
+"format": "prettier resources --write",
+
+Todo:
+- add prettier for JS code styling
+- TBD: set rules for phpcs - https://github.com/squizlabs/PHP_CodeSniffer/wiki/Customisable-Sniff-Properties#genericfileslinelength
+- TBD: add automate code style checking with git hooks (pre-commit)
+- TBD: editorconfig
+- TBD: eslint | eslint-config-prettier | eslint-plugin-vue
+- TBD: instruction how to setup editor
+- TBD: prettier for .blade files

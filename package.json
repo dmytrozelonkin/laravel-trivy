@@ -2,14 +2,16 @@
     "name": "laravel",
     "version": "0.0.1",
     "private": true,
-    "type": "module",
     "scripts": {
         "dev": "vite",
         "build": "vite build",
-        "format": "prettier resources --write"
+        "format": "prettier resources --write",
+        "lint": "eslint \"resources/js/**/*.{js,vue}\" --fix"
     },
     "devDependencies": {
         "axios": "^1.1.2",
+        "eslint": "^8.44.0",
+        "eslint-config-prettier": "^8.8.0",
         "laravel-vite-plugin": "^0.7.5",
         "prettier": "2.8.8",
         "vite": "^4.0.0"
